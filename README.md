@@ -1,3 +1,7 @@
+<p align="center">
+ <img width="500" src="https://github.com/Manar-k/T5-Capstone-Project-Medad/assets/79855806/8c0d0b11-4105-46e6-8464-bb6cd82ab434" alt="Medad logo">
+</p>
+
 # T5-Capstone-Project-Medad
 Capstone Project Medad “مِداد” from the Data Science and Artificial Intelligence T5 Bootcamp.
 
@@ -36,8 +40,6 @@ The OCR dataset is created from Almotanabi Poems and organized as a set of 840 i
 
 We evaluated the OCR model by testing it using a set of 250 images. The results of the CER Character Error Rate:
 
-
-
 | Font Type | Character Error Rate |
 | --- | --- |
 | Thuluth | 83.50% |
@@ -46,6 +48,14 @@ We evaluated the OCR model by testing it using a set of 250 images. The results 
 | Kufic   | 19.30% |
 | Diwani  | 50.50% |
 
+## Deployment (Medad Website)
+We deploy our model using Flask, a web application framework written in Python and consisting of HTML, CSS, JS, and Utils - Python functions code.
+The web application consists of three sections: font classification, optical character recognition, changing the font of regular text to another Arabic font, and spelling correction, and the website will be available in both Arabic and English.
+
 ## Demo
 https://github.com/Manar-k/T5-Capstone-Project-Medad/assets/79855806/cf32c5e7-385c-43db-aaa4-81a88652d5ca
 
+## Tools
+<p align="center">
+ <img width="900" src="https://github.com/Manar-k/T5-Capstone-Project-Medad/assets/79855806/b613fed9-f4cf-4fb2-802c-37de4f4e8b2b" alt="Medad Tools">
+</p>
