@@ -34,15 +34,18 @@ The OCR dataset is created from Almotanabi Poems and organized as a set of 840 i
 - Kufic
 - Diwani
 
-We evaluated the OCR model by testing it using a set of 250 images. The results of the CER Character Error rate:
+We evaluated the OCR model by testing it using a set of 250 images. The results of the CER Character Error Rate:
 
 
 
-| Font Type | Character Error rate |
+| Font Type | Character Error Rate |
 | --- | --- |
 | Thuluth | 83.50% |
 | Ruq’ah  | 43.50% |
 | Naskh   | 24.70% |
 | Kufic   | 19.30% |
 | Diwani  | 50.50% |
+
+## Demo
+https://github.com/Manar-k/T5-Capstone-Project-Medad/assets/79855806/cf32c5e7-385c-43db-aaa4-81a88652d5ca
 
