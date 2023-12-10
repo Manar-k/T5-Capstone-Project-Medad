@@ -23,6 +23,7 @@ The font classification dataset is created from Almotanabi Poems and organized a
 - Naskh
 - Kufic
 - Diwani
+
 We evaluated the font classification model by testing it using the validation set of 20%. The results of validation loss: 0.1195% and the validation accuracy: 86%.
 
 ## Arabic OCR
@@ -32,6 +33,7 @@ The OCR dataset is created from Almotanabi Poems and organized as a set of 840 i
 - Naskh
 - Kufic
 - Diwani
+
 We evaluated the OCR model by testing it using a set of 250 images. The results of the CER Character Error rate:
 
 
