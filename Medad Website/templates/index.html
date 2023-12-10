@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <title>Medad</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- container style -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <!-- for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <!-- google translate page -->
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+<body>
+    <div id="google_translate_element" style="display:none"></div>
+    <!-- h1 website name & image -->
+    <div id="h1" class="imgcontainer">
+        <div>
+        <img src="{{ url_for('static', filename='/img/medad2.png') }}" style="width:100%;">
+        </div>
+        <div class="contenti">
+            <h1 Style="color:white; font-size: 50px;">مِــــــــــــــــداد<br><br></h1>
+            <p class="ptxt">المِداد سائل يكتب به يمد القلم ويعينه على الانسياب والتحرك</p>
+            <p class="ptxt">ربع الكتابة في  سواد مدادها والربع حسن صناعة الكتاب والربع في قلم مليح بريه وعلى الأوراق رابع الأسباب</p>
+        </div>
+    </div>
+        
+    <!-- container 1 -->
+    <div style='background-color: #f1f1f1; text-align: center;' class="container-fluid p-3 border">
+        <h1 class="txt">الأهداف</h1>
+        <p><br></p>
+        <div>
+            <div class="ib"> 
+            <div><img src="{{ url_for('static', filename='img/sokon.svg') }}" width="70" height="60" class="filter-green lineUp"/></div>
+            <br>
+            <p>نشر الثقافة العربية وفنون الخط العربي</p>
+            </div>
+            
+            <div class="ib">
+            <div><img src="{{ url_for('static', filename='img/shadaa.svg') }}" width="70" height="60" class="filter-green lineUp2"/></div>
+            <br>
+            <p>نشر تاريخ وجماليات الخط العربي في هندسته وتفاصيله وأشكاله</p>
+            </div>
+            
+            <div class="ib">
+            <div><img src="{{ url_for('static', filename='img/fee.svg') }}" width="70" height="60" class="filter-green lineUp3"/></div>
+            <br>
+            <p>جعل الخط العربي أيقونة تمثّل الهوية السعودية والفنّ المتجدد والإرث الحضاري</p>
+            </div>
+            
+            <div class="ib">
+            <div><img src="{{ url_for('static', filename='img/so.svg') }}" width="70" height="60" class="filter-green lineUp4"/></div>
+            <br>
+            <p>ابراز مخزون ثقافي إبداعي يعكس ثراء الثقافة العربية</p>
+            </div>
+            
+            <div class="ib">
+            <div><img src="{{ url_for('static', filename='img/hamza.svg') }}" width="70" height="60" class="filter-green lineUp5"/></div>
+            <br>
+            <p>فتح آفاقاً جديدة في التعامل مع الخط العربي</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+    
+    <!-- container 2 -->
+    <span id="h2"><br><br></span>
+    <div style='background-color: #f1f1f1; text-align: center; 'class="container-fluid p-3 border">
+        <h1 class="txt">تعرف على نوع الخط</h1>
+            <form class="form-horizontal" action="/submit" method="POST" enctype="multipart/form-data" onclick="hideButton(this.form)">
+                {% if scroll %}
+                <script>
+                document.getElementById('{{ scroll }}').scrollIntoView();
+                </script>
+                {% endif %}
+            <!-- upload image -->
+            <div class="container">
+                <div class="wrapper">
+                    <div class="image">
+                        <img id="upimg" src="{{img_path}}" alt="">
+                    </div>
+                    <div>
+                        <button type="button" class="button-image" id="uploadButton" onclick="defaultBtnActive(this.form)"></button>
+                        <input  id="default-btn" type="file" name="my_image" hidden >
+                    </div>
+                    <div class="text"> 
+                         ارفق الصورة
+                    </div>
+                    <div id="cancel-btn">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="file-name">
+                        File name here
+                    </div>
+                </div>
+                <button id="custom-btn" type="submit">ارسال</button>
+            </form>
+        </div>
+        <!-- display calligraphy info -->
+        <div class="container">
+            <h3 class="predtxt2">  {{prediction}}</h3>
+            <div class="box-txt"><p>{{info}}</p></div>
+        </div>
+    </div>
+
+    <!-- <div class="divider"></div> -->
+
+    <!-- container 3 -->
+    <!-- <span id="h3"><br><br></span>
+    <div style='background-color: #f1f1f1;'class="container-fluid p-3 border">
+        <h1 class="txt">تغيير خط النص</h1>
+        <div class="div_input">
+            <form action="/submit2" method="POST" enctype="multipart/form-data">
+                {% if scroll %}
+                <script>
+                document.getElementById('{{ scroll }}').scrollIntoView();
+                </script>
+                {% endif %}
+              <label for="txt">ادخل النص</label>
+              <input type="text" id="input" name="yourtext" placeholder="اكتب عبارة" >
+              <input type="text" id="output" placeholder="" >
+              <button class="corrctbtn" type="button" onclick="sendData();">صحح لي</button>
+              <label for="fonts">اختر نوع الخط</label>
+              <select class="selectfont" id="fonts" name="fonts">
+                <option value="Thuluth">الثلث</option>
+                <option value="Ruqah">الرقعة</option>
+                <option value="Naskh">النسخ</option>
+                <option value="Kufic">الكوفي</option>
+                <option value="Diwani">الديواني</option>
+              </select>
+              <input type="submit" value="ارسال">
+            </form>
+        </div> -->
+        <!--display image wrapper-->
+        <!-- <div class="container">
+            <h3 class="predtxt">الصورة</h3>
+            <div class="displayimg">
+                <div class="image">
+                    <img id="upimg" src="{{image_of_text}}" alt="" width="600" height="260">
+                </div>
+            </div>
+        </div>     
+    </div> -->
+
+    <div class="divider"></div>
+
+    <!-- container 4 -->
+    <span id="h4"><br><br></span>
+    <div style='background-color: #f1f1f1;'class="container-fluid p-3 border">
+        <h1 class="txt"> استخراج النص</h1>
+        <form class="form-horizontal" action="/submit3" method="POST" enctype="multipart/form-data" onclick="hideButton(this.form)">
+            {% if scroll %}
+            <script>
+            document.getElementById('{{ scroll }}').scrollIntoView();
+            </script>
+            {% endif %}
+            <div>
+        <!-- upload image class="ib" -->
+        <div class="ib div_input" style="float: right;">
+        <label for="img">ارفق الصورة</label>
+        <input type="file" id="img" name="my_image2" accept="image/*">
+        <img id="upimg" src="{{img_path3}}" alt="" width="340" height="200">
+        <input type="submit" value="ارسال">
+        <!-- </div> -->
+        <!-- <div class="container">
+            <div class="wrapper">
+                <div class="image">
+                    <img id="upimg" src="{{img_path3}}" alt="">
+                </div>
+                <div>
+                    <button type="button" class="button-image" id="uploadButton" onclick="defaultBtnActive(this.form)"></button>
+                    <input  id="default-btn" type="file" name="my_image2" hidden >
+                </div>
+                <div class="text"> 
+                     ارفق الصورة
+                </div>
+                <div id="cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="file-name">
+                    File name here
+                </div>
+            </div> -->
+            <!-- <button type="submit">ارسال</button> -->
+            <!-- id="custom-btn" -->
+        </form>
+    </div>
+    <!-- display calligraphy info class="container"-->
+    <h3 class="predtxt3">النص</h3>
+    <div class="ib" style="float: left;">
+        <!-- <h3 class="predtxt3">النص</h3> -->
+        <div class="box-txt2"><p>{{extract}}</p></div>
+    </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+    <!-- container 3 -->
+    <span id="h3"><br><br></span>
+    <div style='background-color: #f1f1f1;'class="container-fluid p-3 border">
+        <h1 class="txt">تغيير خط النص</h1>
+        <div class="div_input">
+            <form action="/submit2" method="POST" enctype="multipart/form-data">
+                {% if scroll %}
+                <script>
+                document.getElementById('{{ scroll }}').scrollIntoView();
+                </script>
+                {% endif %}
+              <label for="txt">ادخل النص</label>
+              <input type="text" id="input" name="yourtext" placeholder="اكتب عبارة" >
+              <input type="text" id="output" placeholder="" >
+              <button class="corrctbtn" type="button" onclick="sendData();">صحح لي</button>
+              <label for="fonts">اختر نوع الخط</label>
+              <select class="selectfont" id="fonts" name="fonts">
+                <option value="Thuluth">الثلث</option>
+                <option value="Ruqah">الرقعة</option>
+                <option value="Naskh">النسخ</option>
+                <option value="Kufic">الكوفي</option>
+                <option value="Diwani">الديواني</option>
+              </select>
+              <input type="submit" value="ارسال">
+            </form>
+        </div>
+        <!--display image wrapper-->
+        <div class="container">
+            <h3 class="predtxt">الصورة</h3>
+            <div class="displayimg">
+                <div class="image">
+                    <img id="upimg" src="{{image_of_text}}" alt="" width="600" height="260">
+                </div>
+            </div>
+        </div>     
+    </div>
+
+    <!-- header -->
+    <header class="header">
+        <ul>
+            <li style="float: right"><img src="{{ url_for('static', filename='img/medad-b.jpg') }}" width="60" height="43"/></li>
+            <li style="float: right"><a style='text-decoration: none; color: white;' href="#h1">الرئيسية</a></li>
+            <li style="float: right"><a style='text-decoration: none; color: white;' href="#h2">تعرف على نوع الخط</a></li>
+            <li style="float: right"><a style='text-decoration: none; color: white;' href="#h3">تغيير خط النص</a></li>
+            <li style="float: right"><a style='text-decoration: none; color: white;' href="#h4">استخراج النص</a></li>
+            <li style="float: left;">
+                <select class="active" id="lang" onchange="changeFunc();">
+                    <option value="ara">AR</option>
+                    <option value="eng">EN</option>
+                </select>
+            </li>
+        </ul>
+    </header>
+
+    <!-- footer -->
+    <footer>
+        <table class="footer">
+            <tr>
+                <td><br></td>
+                <td><br></td>
+                <td style="float: left;"><img src="{{ url_for('static', filename='img/vision-2030.png') }}" width="70" height="50"/></td>
+                <td><br></td>
+                <td><br><p>❤صنع بِـ<br>مِــــداد</p></td>
+                <td><br></td>
+                <td style="float: right;"><br><img src="{{ url_for('static', filename='img/MOC.png') }}" width="70" height="50"/></td>
+                <td><br></td>
+                <td><br></td>
+            </tr>
+        </table>
+    </footer>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>
